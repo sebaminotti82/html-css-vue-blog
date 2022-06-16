@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font2/css/all.min.css">
+    <title>My-blog</title>
+</head>
+<body>
+    <div id="root">
+       <header>
+            <div class="h_top">
+                <div class="title">
+                        <h5>{{header.titleTop}}</h5>
+                </div>
+                <div class="link_top">
+                     <ul>
+                      
+                        <li v-for="link in header.linkTop">
+                           <b>{{link}}</b> 
+                        </li>
+                     </ul>
+                </div>
+            </div>
+            <div class="h_center">
+                  <div class="logo">
+                      <img :src="header.logo" alt="">
+                  </div>
+            </div>
+            <div class="h_bottom">
+                 <div class="boxLinkBottom">
+                    <ul>
+                        <li></li>
+                       <li v-for="link in header.links">
+                           <b>{{link}}</b> 
+                        </li>
+                    </ul>
+                 </div>
+                 <div class="lents">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                 </div>
+            </div>
+       </header>
+       <!-- fine header -->
+         <main>
+            <!-- ------------------------------------------------------------------------ -->
+            <div class="containerImageTop">
+                <div v-for="(box, index) in imgBox" class="boxImageTop">
+                    <div class="copertina">
+                      <div class="info">
+                        <button>
+                            <h5>{{txtButtons[index]}}</h5>
+                        </button>
+                           <h3>{{txtBox[index]}}</h3>
+                      </div>
+                    </div>
+                        <img :src="imgBox[index]" alt="">
+                </div>
+            </div>
+
+            <!-- ----------------------------------------------------------------------------------- -->
+
+            <div class="container2">
+                <div  v-for="(post, index) in linkPost" class="post">
+                     <h5>{{post.title}}</h5>
+                     <!-- <span v-for="(img, index) in linkPost[index].image">
+                           {{img}}
+                     </span> -->
+                      <div v-for="(container, index) in linkPost[index].post" class="listPhoto">
+                            <div class="imgList">
+                                <img :src="container.img" alt="">
+                            </div>
+                            <div class="infoListPhoto">
+                                   <b><h5 style="margin-top: 5px;font-size: 0.7em;">{{container.descrizione}}</h5></b>
+                                   <span style="font-size: 0.8em;">{{container.dat}}</span>
+                                  
+                            </div>
+                      </div>
+                </div>
+                <div  class="post">
+                    <B><h5>FEATURED POSTS</h5></B>
+                    <div class="imgBox">
+                        <img src="images/blog-66.jpg" alt="">
+                        <div class="coverImgBox">
+                             <button style="margin-top: 90px;padding : 2px 5px;font-size:0.5em;margin-left: 10px;background-color: #0088cc;border: none;color: white;outline: none;">RECIPES</button>
+                             <h3 style="margin-left: 10px; color:white; margin-top: 5px;">
+                                Tips to Help You Quickly Prepare your Lunch
+                             </h3>
+                        </div>
+                    </div>
+                    <h5 style="margin-top:25px;">FEATURED AUTHOR</h5>
+                    <div class="imgBoxBottom">
+                         <div class="imgBottom">
+                            <img src="images/avatar.jpg" alt="">
+                         </div>
+                         <div class="lor">
+                          <strong><h5 style="margin-top:20PX ;">JHON DOE</h5></strong>  
+                            <p style="font-size: 0.8em;margin-top: 10px;">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non nihil laudantium dolorum ut nobis id nisi dicta possimus facilis aliquam. 
+                            </p>
+                         </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- --------------------------------------------------------------------------------------------------------------------- -->
+            <!-- --------------------------------------------------------------------------------------------------------------------- -->
+            <!-- --------------------------------------------------------------------------------------------------------------------- -->
+
+            <div class="navBarSub">
+                <div class="menuCenter">
+                    <div class="left_menu">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </div>
+                    <div class="center_menu">
+                        <button v-for="btn in buttonCenter">
+                                {{btn}}
+                        </button>
+                    </div>
+                    <div class="right_menu">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
+            <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
+            <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
+            <div class="container3">
+               <div class="box_container3">
+                    <img src="images/blog-54.jpg" alt="">
+               </div>
+               <div class="social">
+                    <div class="box_title">
+                        <h5> <strong>LATEST FROM TWITTER</strong> </h5>
+                    </div>
+                    <div class="box_social">
+                         <div class="imgSocial">
+                            <i class="fa-brands fa-twitter"></i>
+                         </div>
+                         <div class="textSocial">
+                                     <p style="font-size:0.9em">
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae fuga magnam eius quo.
+                                     </p>
+                                     <div class="ora">
+                                        <span style="color: #0088cc;font-size:0.7em"><strong>01:05 PM Sep 18th</strong></span>
+                                     </div>
+                         </div>
+                         
+                    </div>
+                    <div class="box_social">
+                        <div class="imgSocial">
+                            <i class="fa-brands fa-twitter"></i>
+                        </div>
+                        <div class="textSocial">
+                            <p style="font-size:0.9em">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae fuga magnam eius quo.
+                             </p>
+                             <div class="ora">
+                                <span style="color: #0088cc;font-size:0.7em"><strong>01:08 PM Sep 18th</strong></span>
+                             </div>
+                        </div>
+                        
+                    </div>
+
+
+                    <div class="box_title two">
+                        <h5> <strong>PHOTOS FROM INSTAGRAM</strong> </h5>
+                    </div>
+                    <div class="boxSocialFoto">
+                        <div v-for="(foto, index) in socialFoto" class="socialFotoImg">
+                               <img :src="'images/'+foto+'.jpg'" alt="">
+                        </div>
+                    </div>
+                    <div class="box_title two">
+                        <h5> <strong>TAGS</strong> </h5>
+                    </div>
+                    <div class="tags">
+                        <button>DESIGN</button>
+                        <button>BRENDS</button>
+                        <button>VIDEO</button>
+                        <button>BUSINESS</button>
+                        <button>TRAVEL</button>
+                    </div>
+
+                    <div class="find">
+                        <h5><strong>FIND US ON FACEBOOK</strong></h5>
+                    </div>
+                    <div class="bottomText">
+                        <h6 style="color:#0088cc;"><strong>Ockler Theme</strong></h6>
+                    </div>
+               </div>
+
+
+
+
+
+
+
+               <div class="description">
+                  <div class="calendar">
+                      <div class="calendario">
+                         <span>12</span>
+                         <div class="month">
+                            <h5>jan</h5>
+                         </div>
+                      </div>
+                  </div>
+                  <div class="title_description">
+                                <h2>How to Make Friends as a grown-Up</h2>
+                  </div>
+                  <div class="txt_description">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida suscipit finibus. Maecenas mollis suscipit luctus.
+                        Aliquam non mi ut ipsum ultricies luctus. Nullam eget sem viverra, tempus turpis a, cursus nisi. Vivamus lacinia dolor
+                         at tempus convallis. Integer tempus urna orci,
+                        a pharetra tortor imperdiet et. Integer magna lorem, euismod sed ante eu, scelerisque convallis diam.
+                        </p>
+                  </div>
+                  <div class="link_description">
+                    <div class="box1">
+                        <i class="fa-solid fa-user"></i> <span><strong>By</strong> </span><span>Jhon Doe</span> 
+                    </div>
+                    <div class="box2">
+                        <i class="fa-solid fa-folder"></i> <span><strong>Life Style</strong>, </span><span>Travel</span> 
+                    </div>
+                    <div class="box3">
+                        <i class="fa-solid fa-comments"></i>  <span><strong>12 Comments</strong>
+                    </div>
+                    <div class="box4">
+                        <button>READ MORE</button>
+                    </div>
+                  </div>
+               </div>
+            </div>
+            <div class="container3">
+                <div class="box_container3">
+                     <img src="images/blog-55 (1).jpg" alt="">
+                </div>
+                
+                <div class="description">
+                    <div class="calendar">
+                        <div class="calendario">
+                           <span>12</span>
+                           <div class="month">
+                              <h5>jan</h5>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="title_description">
+                        <h2>Simple Wais to Have a Pretty Face</h2>
+                    </div>
+                    <div class="txt_description">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida suscipit finibus. Maecenas mollis suscipit luctus.
+                            Aliquam non mi ut ipsum ultricies luctus. Nullam eget sem viverra, tempus turpis a, cursus nisi. Vivamus lacinia dolor
+                             at tempus convallis. Integer tempus urna orci,
+                            a pharetra tortor imperdiet et. Integer magna lorem, euismod sed ante eu, scelerisque convallis diam.
+                        </p>
+                    </div>
+                    <div class="link_description">
+                        <div class="box1">
+                            <i class="fa-solid fa-user"></i> <span><strong>By</strong> </span><span>Jhon Doe</span> 
+                        </div>
+                        <div class="box2">
+                            <i class="fa-solid fa-folder"></i> <span><strong>Photography</strong>, </span><span>Travel</span> 
+                        </div>
+                        <div class="box3">
+                            <i class="fa-solid fa-comments"></i>  <span><strong>12 Comments</strong>
+                        </div>
+                        <div class="box4">
+                            <button>READ MORE</button>
+                        </div>
+                    </div>
+                </div>
+             </div>
+            <div class="container3">
+                <div class="box_container3">
+                     <img src="images/blog-56 (1).jpg" alt="">
+                </div>
+                
+                <div class="description">
+                    <div class="calendar">
+                        <div class="calendario">
+                           <span>12</span>
+                           <div class="month">
+                              <h5>jan</h5>
+                           </div>
+                        </div>
+                    </div>
+
+                    <div class="title_description">
+                        <h2>Ranking the greatest players in BasketBall</h2>
+                    </div>
+                    <div class="txt_description">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida suscipit finibus. Maecenas mollis suscipit luctus.
+                            Aliquam non mi ut ipsum ultricies luctus. Nullam eget sem viverra, tempus turpis a, cursus nisi. Vivamus lacinia dolor
+                             at tempus convallis. Integer tempus urna orci,
+                            a pharetra tortor imperdiet et. Integer magna lorem, euismod sed ante eu, scelerisque convallis diam.
+                        </p>
+                    </div>
+                    <div class="link_description">
+                        <div class="box1">
+                            <i class="fa-solid fa-user"></i> <span><strong>By</strong> </span><span>Jhon Doe</span> 
+                        </div>
+                        <div class="box2">
+                            <i class="fa-solid fa-folder"></i> <span><strong>Sport</strong>, </span><span><strong>Business</strong></span> 
+                        </div>
+                        <div class="box3">
+                            <i class="fa-solid fa-comments"></i>  <span><strong>12 Comments</strong>
+                        </div>
+                        <div class="box4">
+                            <button>READ MORE</button>
+                        </div>
+                    </div>
+                </div>
+             </div>
+            <div class="container3">
+                <div class="box_container3">
+                     <img src="images/blog-58 (1).jpg" alt="">
+                </div>
+                
+                <div class="description">
+                    <div class="calendar">
+                        <div class="calendario">
+                           <span>12</span>
+                           <div class="month">
+                              <h5>jan</h5>
+                           </div>
+                        </div>
+                    </div>
+
+                    <div class="title_description">
+                        <h2>Top Camper Trailer Towing Tips</h2>
+                    </div>
+                    <div class="txt_description">
+                            <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida suscipit finibus. Maecenas mollis suscipit luctus.
+                            Aliquam non mi ut ipsum ultricies luctus. Nullam eget sem viverra, tempus turpis a, cursus nisi. Vivamus lacinia dolor
+                             at tempus convallis. Integer tempus urna orci,
+                            a pharetra tortor imperdiet et. Integer magna lorem, euismod sed ante eu, scelerisque convallis diam.
+                            </p>
+                    </div>
+                    <div class="link_description">
+                        <div class="box1">
+                            <i class="fa-solid fa-user"></i> <span><strong>By</strong> </span><span>Jhon Doe</span> 
+                        </div>
+                        <div class="box2">
+                            <i class="fa-solid fa-folder"></i> <span><strong>Life Style</strong>, </span><span> <strong>Travel</strong></span> 
+                        </div>
+                        <div class="box3">
+                            <i class="fa-solid fa-comments"></i>  <span><strong>12 Comments</strong>
+                        </div>
+                        <div class="box4">
+                            <button>READ MORE</button>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                
+             </div>
+             <div class="container3">
+                <div class="box_container3 ultimo">
+                     <div v-for="foto in fotoUltimo" class="boxUltimo">
+                                <img :src="'images/'+foto" alt="">
+                     </div>
+                </div>
+                
+                <div class="description">
+                    <div class="calendar">
+                        <div class="calendario">
+                           <span>8</span>
+                           <div class="month">
+                              <h5>jan</h5>
+                           </div>
+                        </div>
+                    </div>
+
+                    <div class="title_description">
+                        <h2>10 Best Travel Tips After 5 Years Travelling The World</h2>
+                    </div>
+                    <div class="txt_description">
+                            <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida suscipit finibus. Maecenas mollis suscipit luctus.
+                            Aliquam non mi ut ipsum ultricies luctus. Nullam eget sem viverra, tempus turpis a, cursus nisi. Vivamus lacinia dolor
+                             at tempus convallis. Integer tempus urna orci,
+                            a pharetra tortor imperdiet et. Integer magna lorem, euismod sed ante eu, scelerisque convallis diam.
+                            </p>
+                    </div>
+                    <div class="link_description">
+                        <div class="box1">
+                            <i class="fa-solid fa-user"></i> <span><strong>By</strong> </span><span>Jhon Doe</span> 
+                        </div>
+                        <div class="box2">
+                            <i class="fa-solid fa-folder"></i> <span><strong>Life Style</strong>, </span><span> <strong>Travel</strong></span> 
+                        </div>
+                        <div class="box3">
+                            <i class="fa-solid fa-comments"></i>  <span><strong>12 Comments</strong>
+                        </div>
+                        <div class="box4">
+                            <button>READ MORE</button>
+                        </div>
+                        
+                    </div>
+                </div>
+
+               
+             </div>
+                <div class="pages">
+                        <div class="listPage">
+                            <div v-for="n in pages" class="num">
+                                <h4>{{n}}</h4>
+                            </div>
+                        </div>
+                </div>
+         </main>
+
+         <footer>
+            <div class="containerFooter">
+                <div class="adesivo">
+                        <h5>Get in touch</h5>
+                </div>
+                <div class="footer_top">
+                        <div class="boxFooter">
+                           <div class="boxFooter_title">
+                            <h5><strong>ABOUT THE BLOG</strong></h5>
+                           </div>
+                           <div class="txtFooter">
+                               <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur sequi architecto corporis aperiam delectus </b>
+                           </div>
+                           <div class="txtFooter">
+                            <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur sequi architecto corporis aperiam delectus, ea nemo qui obcaecati neque! Adipisci error obcaecati, suscipit quos nemo sed! Nesciunt in provident quaerat. </b>
+                        </div>
+                        <div class="boxFooter_title importante">
+                            <h5> VIEV MORE <strong>></strong> </h5>
+                           </div>
+                        </div>
+                        <div class="boxFooter">
+                            <div class="boxFooter_title">
+                                <h5>RECENTS POSTS</h5>
+                                  <div class="imgFooter">
+                                    <div class="imgFoterFoto">
+                                            <img src="images/our-office-4-square.jpg" alt="">
+                                    </div>
+                                    <div class="descrizioneFooterFoto">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                                            <span>12:54 AM DEC 12</span>
+                                    </div>
+                                  </div>
+                            </div>
+
+                            <div style="margin-top: 80px;" class="boxFooter_title">
+                               
+                                  <div class="imgFooter">
+                                    <div class="imgFoterFoto">
+                                            <img src="images/our-office-5-square.jpg" alt="">
+                                    </div>
+                                    <div class="descrizioneFooterFoto">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                                            <span>12:54 AM DEC 12</span>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="boxFooter">
+                            <div class="boxFooter_title">
+                                <h5>RECENTS COMMENTS</h5>
+                                  <div style="margin-top: 20px;" class="imgFooter">
+                                     <SPAN><strong>JHON DOE</strong> Commented: <span style="color: #0088cc;">Lorem ipsum dolor sit</span></SPAN>
+                                    <div class="descrizioneFooterFoto">
+                                            
+                                            <span>12:54 AM DEC 12</span>
+                                    </div>
+                                  </div>
+
+                                  <div style="margin-top: 20px;" class="imgFooter">
+                                    <SPAN><strong>JHON DOE</strong> Commented: <span style="color: #0088cc;">Lorem ipsum dolor sit</span></SPAN>
+                                   <div class="descrizioneFooterFoto">
+                                           
+                                           <span>12:54 AM DEC 12</span>
+                                   </div>
+                                 </div>
+                            </div>
+
+                        </div>
+                        <div class="boxFooter">
+                           
+                            <div class="boxFooter_title">
+                                <h5>CATEGORIES</h5>
+                                <div class="cat">
+                                    <ul>
+                                        <li>GADGETS</li>
+                                        <li>PHOTOGRAPHY</li>
+                                        <li>LIFESTYLE</li>
+                                        <li>FASHION</li>
+                                        <li>RECIPES</li>
+                                        <li>TRAVEL</li>
+                                        <li>BUSINESS</li>
+                                        <li>ARCHITECTURE</li>
+                                        <li>REVIEVS</li>
+                                        <li>SPORT</li>
+                                        <li>VIDEO</li>
+                                        <li>TECHNOLOGY</li>
+                                        <li>DESIGN</li>
+                                    </ul>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                </div>
+                <div class="footer_bottom">
+                    <div class="logo">
+                        <img :src="header.logo" alt="">
+                    </div>
+                    <div class="copy">
+                        <span style="color: lightgrey; ">@Copiright 2020 All Right reserved</span>
+                    </div>
+                </div>
+            </div>
+         </footer>
+         
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
